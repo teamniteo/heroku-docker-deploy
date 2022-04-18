@@ -5,11 +5,8 @@ inputs:
   heroku_app_name:
     description: "Name of the heroku application to which the build is to be sent."
     required: true
-  email:
-    description: "The email address associated with your Heroku account."
-    required: true
   heroku_api_key:
-    description: "Heroku API key associated with provided user's email."
+    description: "Heroku API key"
     required: true
   dockerfile_directory:
     description: "Dockerfile directory."

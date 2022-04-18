@@ -22,21 +22,11 @@ jobs:
       # Check-out your repository.
       - name: Checkout
         uses: actions/checkout@v2
-
-
-### ⬇ IMPORTANT PART ⬇ ###
-
       - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
         uses: gonuit/heroku-docker-deploy@v1.3.3 # GitHub action name (leave it as it is).
         with:
           # Below you must provide variables for your Heroku app.
-
-          # The email address associated with your Heroku account.
-          # If you don't want to use repository secrets (which is recommended) you can do:
-          # email: my.email@example.com
-          email: ${{ secrets.HEROKU_EMAIL }}
           
-          # Heroku API key associated with provided user's email.
           # Api Key is available under your Heroku account settings.
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           
@@ -62,9 +52,6 @@ jobs:
           # For more information look at https://devcenter.heroku.com/articles/process-model
           process_type: web
           
-   
-          
-### ⬆ IMPORTANT PART ⬆ ###
 ```
 
 ## Logs

@@ -13,7 +13,6 @@ const DEFAULT_DOCKER_OPTIONS = '';
 
 (async () => {
   try {
-    const email = core.getInput('email', { required: true });
     const herokuApiKey = core.getInput('heroku_api_key', { required: true });
     const herokuAppName = core.getInput('heroku_app_name', { required: true });
     const dockerFileDirectory = core.getInput('dockerfile_directory', { required: true });
@@ -21,7 +20,6 @@ const DEFAULT_DOCKER_OPTIONS = '';
     const dockerOptions = core.getInput('docker_options') || DEFAULT_DOCKER_OPTIONS;
     const processType = core.getInput('process_type') || DEFAULT_PROCESS_TYPE;
 
-    assert(email, 'Missing required field: `email`.');
     assert(herokuApiKey, 'Missing required field: `heroku_api_key`.');
     assert(herokuAppName, 'Missing required field: `heroku_app_name`.');
     assert(dockerFileDirectory, 'Missing required field: `dockerfile_directory`.');
@@ -33,7 +31,6 @@ const DEFAULT_DOCKER_OPTIONS = '';
     assertFileExists(dockerFilePath);
 
     const logged = await loginToHeroku({
-      email,
       herokuApiKey,
       cwd,
     });
